@@ -31,6 +31,7 @@ import java.util.List;
 import java.util.Map;
 
 import butterknife.Bind;
+import butterknife.BindDimen;
 import butterknife.BindInt;
 import butterknife.ButterKnife;
 
@@ -60,6 +61,9 @@ public class ArticleListActivity extends AppCompatActivity implements
     RecyclerView mRecyclerView;
     @BindInt(R.integer.list_column_count)
     int columnCount;
+
+    @BindDimen(R.dimen.spacing_normal)
+    int mSpaceItems;
 
     private ArticleAdapter mAdapter;
     private boolean mIsRefreshing = false;
@@ -118,7 +122,7 @@ public class ArticleListActivity extends AppCompatActivity implements
         }
 
         StaggeredGridLayoutManager sglm = new StaggeredGridLayoutManager(columnCount, StaggeredGridLayoutManager.VERTICAL);
-        SpacesItemDecoration decoration = new SpacesItemDecoration(8, columnCount);
+        SpacesItemDecoration decoration = new SpacesItemDecoration(mSpaceItems, columnCount);
 
         mRecyclerView.setLayoutManager(sglm);
 
