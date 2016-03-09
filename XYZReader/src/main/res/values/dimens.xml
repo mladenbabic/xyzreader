@@ -1,7 +1,6 @@
 <resources>
+
     <!-- detail -->
-    <dimen name="detail_title_text_size">16sp</dimen>
-    <dimen name="detail_body_text_size">14sp</dimen>
     <item name="detail_body_line_spacing_multiplier" format="float" type="fraction">1.25</item>
 
     <dimen name="fab_elevation">4dp</dimen>
@@ -14,7 +13,7 @@
 
     <!-- font sizes -->
     <dimen name="font_larger">22sp</dimen>
-    <dimen name="font_large">18sp</dimen>
+    <dimen name="font_large">16sp</dimen>
     <dimen name="font_normal">14sp</dimen>
     <dimen name="font_small">12sp</dimen>
 
@@ -22,7 +21,7 @@
     <dimen name="spacing_huge">40dp</dimen>
     <dimen name="spacing_large">24dp</dimen>
     <dimen name="spacing_normal">14dp</dimen>
-    <dimen name="spacing_small">10dp</dimen>
+    <dimen name="spacing_small">8dp</dimen>
     <dimen name="spacing_tiny">4dp</dimen>
 
     <dimen name="padding_normal">16dp</dimen>

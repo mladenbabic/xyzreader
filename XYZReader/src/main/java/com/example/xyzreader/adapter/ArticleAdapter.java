@@ -96,7 +96,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
 
         @Bind(R.id.thumbnail)
         ImageView thumbnailView;
-        @Bind(R.id.article_title)
+        @Bind(R.id.detail_article_title)
         TextView titleView;
         @Bind(R.id.article_subtitle)
         TextView subtitleView;
