@@ -118,7 +118,7 @@ public class ArticleListActivity extends AppCompatActivity implements
         }
 
         StaggeredGridLayoutManager sglm = new StaggeredGridLayoutManager(columnCount, StaggeredGridLayoutManager.VERTICAL);
-        SpacesItemDecoration decoration = new SpacesItemDecoration(16, columnCount);
+        SpacesItemDecoration decoration = new SpacesItemDecoration(8, columnCount);
 
         mRecyclerView.setLayoutManager(sglm);
 
