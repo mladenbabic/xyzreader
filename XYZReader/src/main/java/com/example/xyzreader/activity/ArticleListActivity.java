@@ -41,7 +41,7 @@ import butterknife.ButterKnife;
  * touched, lead to a {@link ArticleDetailActivity} representing item details. On tablets, the
  * activity presents a grid of items as cards.
  *
- * Credits to alexjlockwood for shared transition content example in fragments
+ * Credits to Alex Lockwood for a shared element transition example in fragments
  * https://github.com/alexjlockwood/activity-transitions
  */
 
