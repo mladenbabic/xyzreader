@@ -15,6 +15,7 @@
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"/>
 
+
         <TextView
             android:id="@+id/detail_article_title"
             style="@style/TextAppearance.AppCompat.Subhead"
