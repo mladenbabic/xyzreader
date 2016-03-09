@@ -60,8 +60,7 @@ public class ArticleListActivity extends AppCompatActivity implements
     @Bind(R.id.recycler_view)
     RecyclerView mRecyclerView;
     @BindInt(R.integer.list_column_count)
-    int columnCount;
-
+    int mColumnCount;
     @BindDimen(R.dimen.spacing_normal)
     int mSpaceItems;
 
@@ -121,8 +120,8 @@ public class ArticleListActivity extends AppCompatActivity implements
             setExitSharedElementCallback(mCallback);
         }
 
-        StaggeredGridLayoutManager sglm = new StaggeredGridLayoutManager(columnCount, StaggeredGridLayoutManager.VERTICAL);
-        SpacesItemDecoration decoration = new SpacesItemDecoration(mSpaceItems, columnCount);
+        StaggeredGridLayoutManager sglm = new StaggeredGridLayoutManager(mColumnCount, StaggeredGridLayoutManager.VERTICAL);
+        SpacesItemDecoration decoration = new SpacesItemDecoration(mSpaceItems);
 
         mRecyclerView.setLayoutManager(sglm);
 

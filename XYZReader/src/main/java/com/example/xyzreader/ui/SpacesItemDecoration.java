@@ -8,14 +8,10 @@ import android.view.View;
  * Created by Suleiman on 26-07-2015.
  */
 public class SpacesItemDecoration extends RecyclerView.ItemDecoration {
-    private final int mSpace;
-    private final int columns;
     private final int halfSpace;
 
-    public SpacesItemDecoration(int space, int columns) {
-        this.mSpace = space;
+    public SpacesItemDecoration(int space) {
         this.halfSpace = space /2;
-        this.columns = columns;
     }
 
     @Override
