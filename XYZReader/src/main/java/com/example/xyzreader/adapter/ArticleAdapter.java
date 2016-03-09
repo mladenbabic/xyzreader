@@ -3,6 +3,7 @@ package com.example.xyzreader.adapter;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
 import android.support.v7.widget.RecyclerView;
 import android.text.format.DateUtils;
 import android.view.LayoutInflater;
@@ -11,10 +12,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.example.xyzreader.R;
 import com.example.xyzreader.data.ArticleLoader;
 import com.example.xyzreader.data.ItemsContract;
+import com.squareup.picasso.Picasso;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -27,8 +28,8 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
     private Context context;
     private AdapterItemListener adapterItemListener;
 
-    public interface  AdapterItemListener {
-        public void onItemClick(Uri uri, String transitionName, View v);
+    public interface AdapterItemListener {
+        public void onItemClick(Uri uri, int position, View v);
     }
 
     public ArticleAdapter(Context context, AdapterItemListener adapterItemListener) {
@@ -46,12 +47,14 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_article, parent, false);
         final ViewHolder vh = new ViewHolder(view);
-
         return vh;
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, final int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
+        if (mCursor == null) {
+            return;
+        }
         mCursor.moveToPosition(position);
         holder.titleView.setText(mCursor.getString(ArticleLoader.Query.TITLE));
         holder.subtitleView.setText(
@@ -64,20 +67,21 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
 
         String url = mCursor.getString(ArticleLoader.Query.THUMB_URL);
 
-        final String transitionName = context.getString(R.string.transitionName);
-
-        Glide.with(context)
+        Picasso.with(context)
                 .load(url)
                 .into(holder.thumbnailView);
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            holder.thumbnailView.setTransitionName(String.valueOf(position));
+        }
+
+        holder.thumbnailView.setTag(String.valueOf(position));
         holder.parent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(adapterItemListener != null) {
-                    adapterItemListener.onItemClick(ItemsContract.Items.buildItemUri(getItemId(position)), transitionName, view);
+                if (adapterItemListener != null) {
+                    adapterItemListener.onItemClick(ItemsContract.Items.buildItemUri(getItemId(position)), position, holder.thumbnailView);
                 }
-//                context.startActivity(new Intent(Intent.ACTION_VIEW,
-//                        ItemsContract.Items.buildItemUri(getItemId(vh.getAdapterPosition()))));
             }
         });
     }

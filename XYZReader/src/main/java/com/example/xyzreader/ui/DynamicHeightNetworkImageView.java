@@ -6,42 +6,30 @@ import android.util.AttributeSet;
 import com.android.volley.toolbox.NetworkImageView;
 
 public class DynamicHeightNetworkImageView extends NetworkImageView {
-    private double mHeightRatio;
 
-
-    public DynamicHeightNetworkImageView(Context context, AttributeSet attrs) {
-        super(context, attrs);
-    }
-
+    private float mAspectRatio = 1.5f;
 
     public DynamicHeightNetworkImageView(Context context) {
         super(context);
     }
 
-
-    public void setHeightRatio(double ratio) {
-        if (ratio != mHeightRatio) {
-            mHeightRatio = ratio;
-            requestLayout();
-        }
+    public DynamicHeightNetworkImageView(Context context, AttributeSet attrs) {
+        super(context, attrs);
     }
 
-
-    public double getHeightRatio() {
-        return mHeightRatio;
+    public DynamicHeightNetworkImageView(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
     }
 
+    public void setAspectRatio(float aspectRatio) {
+        mAspectRatio = aspectRatio;
+        requestLayout();
+    }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        if (mHeightRatio > 0.0) {
-            // set the image views size
-            int width = MeasureSpec.getSize(widthMeasureSpec);
-            int height = (int) (width * mHeightRatio);
-            setMeasuredDimension(width, height);
-        }
-        else {
-            super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        }
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        int measuredWidth = getMeasuredWidth();
+        setMeasuredDimension(measuredWidth, (int) (measuredWidth / mAspectRatio));
     }
 }

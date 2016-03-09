@@ -4,10 +4,11 @@
     <style name="Theme.Bacon.Home">
         <item name="android:windowExitTransition">@transition/grid_exit</item>
         <item name="android:windowReenterTransition">@transition/grid_reenter</item>
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowSharedElementsUseOverlay">true</item>
     </style>
 
     <style name="Theme.Bacon.Detail">
         <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:windowSharedElementEnterTransition">@transition/shared_photo</item>
     </style>
 </resources>

@@ -4,5 +4,5 @@
     <changeTransform/>
     <changeClipBounds/>
     <changeImageTransform/>
-    <arcMotion android:minimumHorizontalAngle="40" android:duration="1000" />
+    <arcMotion/>
 </transitionSet>

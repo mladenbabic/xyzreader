@@ -23,6 +23,9 @@
         <item name="colorAccent">@color/theme_accent</item>
         <item name="android:textColorPrimary">@color/theme_primary_text_color</item>
         <item name="android:textColorSecondary">@color/theme_secondary_text_color</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowActionBarOverlay">true</item>
+        <item name="windowNoTitle">true</item>
         <!--<item name="clickableItemForeground">?android:selectableItemBackground</item>-->
     </style>
 
