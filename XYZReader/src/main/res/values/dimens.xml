@@ -30,5 +30,6 @@
     <dimen name="detail_image_height">300dp</dimen>
     <dimen name="action_bar_height">56dp</dimen>
     <dimen name="logo_padding_top">0dp</dimen>
+    <dimen name="toolbar_elevation">4dp</dimen>
 
 </resources>
