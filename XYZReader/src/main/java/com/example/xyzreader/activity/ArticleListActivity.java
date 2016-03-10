@@ -129,6 +129,11 @@ public class ArticleListActivity extends AppCompatActivity implements
             setExitSharedElementCallback(mCallback);
         }
 
+        mToolbar.setTitle("");
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+
         StaggeredGridLayoutManager sglm = new StaggeredGridLayoutManager(mColumnCount, StaggeredGridLayoutManager.VERTICAL);
         SpacesItemDecoration decoration = new SpacesItemDecoration(mSpaceItems);
 
@@ -201,11 +206,11 @@ public class ArticleListActivity extends AppCompatActivity implements
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
         int id = item.getItemId();
         if (id == R.id.refresh) {
             Snackbar.make(mCoordinatorLayout, "Refresh list",
                     Snackbar.LENGTH_SHORT).show();
+            onRefresh();
             return true;
         }
 
